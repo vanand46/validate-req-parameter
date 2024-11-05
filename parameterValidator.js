@@ -5,14 +5,32 @@
  * @returns {Function} function for express.js
  */
 function validateParmameter(regex, paramNmae) {
-  return (req, res, next) => {
-    const value = req.params[paramNmae];
-    if (regex.test(value)) {
-      next();
-    } else {
-      res.status(400).json({ error: `${paramNmae} - Invalid parameter!` });
-    }
-  };
+  try {
+    return (req, res, next) => {
+      const value = req.params[paramNmae];
+
+      if (value === undefined) {
+        return res
+          .status(400)
+          .json({ message: `${paramNmae} - Missing parameter!`, error: true });
+      }
+      if (regex.test(value)) {
+        next();
+      } else {
+        res
+          .status(400)
+          .json({ message: `${paramNmae} - Invalid parameter!`, error: true });
+      }
+    };
+  } catch (error) {
+    console.error(
+      `Error occurred in validateParam middleware: ${error.message}`
+    );
+    res.status(500).json({
+      error: true,
+      message: "Internal Server Error",
+    });
+  }
 }
 
 module.exports = validateParmameter;
