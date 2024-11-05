@@ -14,3 +14,5 @@ function validateParmameter(regex, paramNmae) {
     }
   };
 }
+
+module.exports = validateParmameter;
