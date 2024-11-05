@@ -1,0 +1,27 @@
+{
+  "name": "validate-req-parameter",
+  "version": "1.0.0",
+  "description": "Middleware to validate request parameter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanand46/validate-req-parameter.git"
+  },
+  "keywords": [
+    "request-param",
+    "validator",
+    "middleware"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanand46/validate-req-parameter/issues"
+  },
+  "homepage": "https://github.com/vanand46/validate-req-parameter#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
